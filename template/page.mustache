@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>graphiteCMS</title>
+  <title>{{title}}</title>
   <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="stylesheet" href="css/reset.css" />  
   <link rel="stylesheet" href="css/style.css" />
@@ -14,12 +14,12 @@
 </head>
 <body>
   <header>
-    <h1>graphiteCMS</h1>
-    <nav>
+    <h1>{{page_title}}</h1>
+    <nav>{{#nav}}
+      <a href="#" rel="{{.}}">{{.}}</a>{{/nav}}
     </nav>
   </header>
-  <div id="content">
-	{{content}}
+  <div id="content">{{content}}
   </div>
   <footer><span class="heart">&hearts;</span>graphiteCMS &copy; 2012</footer>
   </body>
