@@ -1,7 +1,3 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . /graphiteCMS/index.php [L] 
-
-#:Location /*.php
-#Use php53 
-#:Location
