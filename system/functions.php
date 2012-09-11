@@ -6,15 +6,14 @@
 				  (pathinfo($sub, PATHINFO_EXTENSION) == "md" ||
 				   pathinfo($sub, PATHINFO_EXTENSION) == "markdown" ||
 				   pathinfo($sub, PATHINFO_EXTENSION) == "txt")) {
-                    	//post! 
-						$text  =  file_get_contents($path ."/". $sub);
+                    	$text  =  file_get_contents($path ."/". $sub);
 						//echo($path ."/". $sub . ",");
 						$post = spyc_load(substr($text,0,stripos ($text , "---")));
 						$post['content']=trim(str_replace('<img src="', '<img src="'.$path."/",Markdown(substr($text,stripos ($text , "---")+3))));
 						$post['id'] = cleanURL($post['title'],true);
 						$listDir[$sub] = $post;
                 } elseif(is_dir($path."/".$sub)) {
-					//directory - view!
+					//directory - view(?)
                     $listDir[$sub] = getDirectory($path."/".$sub); 
                 }
             }
