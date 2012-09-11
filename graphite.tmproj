@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>documents</key>
+	<array>
+		<dict>
+			<key>filename</key>
+			<string>content/1.intro.md</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>content/2.projekty/1.ekk.md</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:06Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>content/2.projekty/2.takk.md</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>content/3.linki.md</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>content/4.kontakt.md</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>css/style.css</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:06Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>js/engine.js</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:05Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>js/jquery-1.8.0.min.js</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:05Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>system/engine.php</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:05Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>template/page.mustache</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:04Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>template/post.mustache</string>
+			<key>lastUsed</key>
+			<date>2012-08-28T13:14:06Z</date>
+			<key>selected</key>
+			<true/>
+		</dict>
+	</array>
+	<key>fileHierarchyDrawerWidth</key>
+	<integer>200</integer>
+	<key>metaData</key>
+	<dict/>
+	<key>showFileHierarchyDrawer</key>
+	<true/>
+	<key>windowFrame</key>
+	<string>{{210, 4}, {1230, 874}}</string>
+</dict>
+</plist>

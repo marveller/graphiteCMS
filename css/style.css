@@ -1,0 +1,21 @@
+/* 
+
+		      |           |
+	,---.,---.|.,---.,---.|__/.   ,---.,---.,---. 2012
+	|   ||   ||||   |`---.|  ||   |   ||    |   |
+	`---|`---´'''   '`---''  '' o `---´'    `---|    
+	`---'                                   `---'
+
+*/
+body { margin:50px 0 0 50px; font-family: 'Actor', sans-serif; font-size:12px}
+header { width: 800px; /*border:1px dashed #f0e;*/}
+h1 { font-size:1.6em; display:inline;}
+h1 span { font-size:0.5em; }
+nav { float:right; /*background-color:#f00;*/}
+section { padding:20px 20px 0 0; width:400px; height:400px; /*border:1px solid #eee;*/	}
+section h2 { font-size:1.5em; }
+section p { font-size:1em; }
+footer {font-size:1em;}
+footer span.heart { font-size:0.6em; background-color:#e11; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color:#fff; padding:0 3px 0 3px;}
+ul { list-style: disc; padding:0 0 0 16px;}
+ol { list-style: decimal; padding:0 0 0 18px;}
