@@ -8,14 +8,6 @@
   define("TEMPLATE", "template");//templates dir
   define("CONTENT","content"); //content files dir
   define("VERSION",	0.43); //version
-  define("BASE", dirname($_SERVER['PHP_SELF'])); //for redirects
+  define("BASE", dirname($_SERVER['PHP_SELF'])); //for redirects  
   include 'system/engine.php'; //go go go!
-
-/* .htaccess:
-	RewriteEngine On
-	RewriteBase /
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule .* index.php [L,QSA]
-*/
 ?>
