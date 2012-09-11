@@ -4,6 +4,11 @@
   //&copy; 2012 golinski.org
   define("TITLE","graphiteCMS v.043");
   define("CONTENT404", "{'title':'404','content':'This is not the page you are looking for.'}");//?
+  
+  //define dateformat 4 blogs etc.
+  //types
+  //
+  
   /* ----- you probably shouldn't touch anything below ----- */
   define("TEMPLATE", "template");//templates dir
   define("CONTENT","content"); //content files dir

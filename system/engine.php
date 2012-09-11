@@ -11,7 +11,7 @@ $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_Filesystem
 $pageTpl = $mustache->loadTemplate('page');
 $nav = array();
 //menu construction
-echo arr2nav($arr);
+$nav = arr2nav($arr);
 //content selection:
 reset($arr);
 $key = key($arr);
@@ -20,9 +20,10 @@ $post_title = $arr[$key]['title'];
 $pageVars['title'] = $post_title;
 $pageVars['page_title'] = TITLE . ' ' . $post_title;
 $pageVars['content'] = $arr[$key]['content'];
-
+$pageVars['nav'] = $nav;
 //subpages
 //404
+//views
 
 echo $pageTpl->render($pageVars);
 
