@@ -9,7 +9,7 @@
                     	$text  =  file_get_contents($path ."/". $sub);
 						//echo($path ."/". $sub . ",");
 						$post = spyc_load(substr($text,0,stripos ($text , "---")));
-						$post['content']=trim(str_replace('<img src="', '<img src="'.$path."/",Markdown(substr($text,stripos ($text , "---")+3))));
+						$post['content']=trim(str_replace('<img src="', '<img src="'.BASE."/".$path."/",Markdown(substr($text,stripos ($text , "---")+3))));
 						$post['id'] = cleanURL($post['title'],true);
 						$listDir[$sub] = $post;
                 } elseif(is_dir($path."/".$sub)) {

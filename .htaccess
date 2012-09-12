@@ -1,3 +1,5 @@
 RewriteEngine On
+RewriteBase /graphite
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . /graphiteCMS/index.php [L] 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,QSA]

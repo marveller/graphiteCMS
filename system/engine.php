@@ -10,23 +10,39 @@ ksort($arr);
 $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__).'/../'.TEMPLATE)));
 $pageTpl = $mustache->loadTemplate('page');
 $nav = array();
+
+
+$addr = $_SERVER['REQUEST_URI'];
+$addr = substr($addr, strlen(BASE)+1);
+$addr = rtrim($addr, "/");
+
+//if(strlen($addr)==0)
+//	homepage;
+//else
+print_r(split("/",$addr));
+//echo $addr;
+//$addr = ltrim($addr , BASE);
+
+
+
+//url construction/analysis
+//check if cached
+//serve or:
+
 //menu construction
+
 $nav = arr2nav($arr);
 //content selection:
 reset($arr);
 $key = key($arr);
 $post_title = $arr[$key]['title'];
-
-$pageVars['title'] = $post_title;
-$pageVars['page_title'] = TITLE . ' ' . $post_title;
+$pageVars['base']=BASE;
+$pageVars['post_title'] = $post_title;
+$pageVars['page_title'] = TITLE;
 $pageVars['content'] = $arr[$key]['content'];
 $pageVars['nav'] = $nav;
-//subpages
-//404
-//views
 
 echo $pageTpl->render($pageVars);
-
 //maybe for later:?
 //$allTags = array_unique($allTags);
 /*
@@ -40,7 +56,7 @@ $page['posts'].=$postTpl->render($post);
 //print_r($page);
 
 //echo $pageTpl->render($pageVars);
-
+//crap to throw away:
 function arr2nav($array) {
     $out='<ul>'."\n";
     foreach($array as $key => $elem){

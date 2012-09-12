@@ -3,52 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>js/engine.js</string>
+	<string>index.php</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>content/1.intro.md</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T13:07:51Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>content/2.projekty/1.ekk.md</string>
-			<key>lastUsed</key>
-			<date>2012-08-28T13:14:06Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>/Library/WebServer/Documents/graphiteCMS/content/2.projekty/2.takk.md</string>
-			<key>lastUsed</key>
-			<date>2012-09-11T13:35:53Z</date>
-			<key>saveAsAbsolutePath</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>content/3.linki.md</string>
-			<key>lastUsed</key>
-			<date>2012-09-11T13:07:49Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>content/4.kontakt.md</string>
+			<date>2012-09-12T11:46:12Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>css/style.css</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T12:22:52Z</date>
+			<date>2012-09-12T11:39:46Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>js/engine.js</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T21:44:23Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2012-09-12T20:29:09Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
@@ -60,7 +34,7 @@
 			<key>filename</key>
 			<string>/Library/WebServer/Documents/graphiteCMS/system/engine.php</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T21:44:23Z</date>
+			<date>2012-09-12T21:45:04Z</date>
 			<key>saveAsAbsolutePath</key>
 			<true/>
 		</dict>
@@ -68,21 +42,25 @@
 			<key>filename</key>
 			<string>template/page.mustache</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T13:08:35Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>template/post.mustache</string>
-			<key>lastUsed</key>
-			<date>2012-08-28T13:14:06Z</date>
+			<date>2012-09-12T21:44:30Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>/Library/WebServer/Documents/graphiteCMS/index.php</string>
 			<key>lastUsed</key>
-			<date>2012-09-11T13:35:05Z</date>
+			<date>2012-09-12T21:45:04Z</date>
 			<key>saveAsAbsolutePath</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>system/functions.php</string>
+			<key>lastUsed</key>
+			<date>2012-09-12T20:29:08Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>README.md</string>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -94,37 +72,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>12</integer>
 				<key>line</key>
 				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>content/2.projekty/2.takk.md</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>17</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>content/3.linki.md</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>25</integer>
-				<key>line</key>
-				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -136,9 +86,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>46</integer>
+				<integer>8</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -150,9 +100,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>99</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>5</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -173,7 +123,21 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>template/page.mustache</key>
+		<key>system/engine.php</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>system/functions.php</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -182,33 +146,33 @@
 				<key>line</key>
 				<integer>0</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>-1</integer>
+		</dict>
+		<key>template/page.mustache</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>20</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>26</integer>
-				<key>line</key>
-				<integer>3</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>js/engine.js</string>
 		<string>index.php</string>
+		<string>system/engine.php</string>
 		<string>content/1.intro.md</string>
+		<string>system/functions.php</string>
 		<string>template/page.mustache</string>
 		<string>css/style.css</string>
 	</array>

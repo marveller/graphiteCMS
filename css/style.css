@@ -20,7 +20,7 @@ nav ul li:last-child { border: none; box-shadow: none; }
 #content h3 { font-size:1.3em; }
 #content p  { font-size:1em; margin: 0 0 1em 0; }
 #content ul { margin:0 0 1em 0; }
-footer { width: 800px; font-size:0.9em; margin:1em 0 0 0; }
+footer { width: 800px; font-size:0.9em; margin:1em 0 0 0; text-align:right; }
 footer span.heart { font-size:0.6em; background-color:#3B3935;/*e11*/ -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color:#FAF1D7; padding:4px 3px 2px 3px;}
 ul { list-style: disc; padding:0 0 0 16px;}
 ol { list-style: decimal; padding:0 0 0 18px;}
