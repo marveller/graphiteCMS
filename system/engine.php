@@ -11,7 +11,7 @@ ksort($arr);
 $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__).'/../'.TEMPLATE)));
 $pageTpl = $mustache->loadTemplate('page');
 $nav = array();
-echo "[".BASE."]";
+//echo "[".BASE."]";
 $addr = $_SERVER['REQUEST_URI'];
 $addr = substr($addr, strlen(BASE)+1);
 $addr = "/".rtrim($addr, "/");
