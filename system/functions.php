@@ -14,10 +14,11 @@
 						$listDir[$sub] = $post;
                 } elseif(is_dir($path."/".$sub)) {
 					//directory - view(?)
-                    $listDir[$sub] = getDirectory($path."/".$sub); 
+                    //? czy na pewno
+					$listDir[$sub] = getDirectory($path."/".$sub); 
                 }
             }
-        }    
+        }
         closedir($handler); 
     } 
     return $listDir;    

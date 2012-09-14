@@ -22,8 +22,10 @@ TODO:
 *  Dropbox sync
 *  if no 0.xxx file in a dir then assume it is a projects directory and link first one
 *  what about the stock market?
-*  no, seriously... what about the section name when no 0.xxx file? Name of the dir?
+*  no, seriously... what about the section name when no 0.xxx file? Name of the dir? - worst case scenario
 *  secondary menu in template must be visible
+*  where to store the images?
+
 
 ##You should include following .htaccess file:
 

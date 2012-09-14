@@ -6,41 +6,57 @@ include('lib/spyc.php');
 include('functions.php');
 Mustache_Autoloader::register();
 $arr = getDirectory(CONTENT);
+//readDirectory ($arr, $menu);
 ksort($arr);
 $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__).'/../'.TEMPLATE)));
 $pageTpl = $mustache->loadTemplate('page');
 $nav = array();
 
-
 $addr = $_SERVER['REQUEST_URI'];
 $addr = substr($addr, strlen(BASE)+1);
-$addr = rtrim($addr, "/");
+$addr = "/".rtrim($addr, "/");
+//print($addr);
+$cached = false;
 
-//if(strlen($addr)==0)
-//	homepage;
-//else
-print_r(split("/",$addr));
+if($cached)
+{
+	//show cached version
+}
+else
+{
+	$pageVars = array();
+	$pageVars['page_title'] = TITLE;
+	$pageVars['base']=BASE;
+	$pageVars['nav'] = arr2nav($arr);;
+	
+	if($addr == "/")
+	{
+		reset($arr);
+		$key = key($arr);
+
+		$pageVars['post_title'] = $arr[$key]['title'];
+		$pageVars['content'] = $arr[$key]['content'];
+	}
+	else
+	{
+		//
+		$pageVars['post_title'] = "tmp title";	
+		$pageVars['content'] = "content";	
+		//not home
+	}
+}
+
+//print_r(split("/",$addr));
 //echo $addr;
 //$addr = ltrim($addr , BASE);
-
-
-
 //url construction/analysis
 //check if cached
 //serve or:
 
 //menu construction
-
-$nav = arr2nav($arr);
 //content selection:
-reset($arr);
-$key = key($arr);
-$post_title = $arr[$key]['title'];
-$pageVars['base']=BASE;
-$pageVars['post_title'] = $post_title;
-$pageVars['page_title'] = TITLE;
-$pageVars['content'] = $arr[$key]['content'];
-$pageVars['nav'] = $nav;
+
+
 
 echo $pageTpl->render($pageVars);
 //maybe for later:?
