@@ -8,6 +8,6 @@
   define("TEMPLATE", "template");//templates dir
   define("CONTENT","content"); //content files dir
   define("VERSION",	0.045); //version
-  define("BASE", dirname($_SERVER['PHP_SELF'])); //for redirects - graphite?
+  define("BASE", trim(dirname($_SERVER['PHP_SELF']),"/")); //for redirects - graphite?
   include 'system/engine.php'; //go go go!
 ?>
