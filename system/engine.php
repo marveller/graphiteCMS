@@ -8,14 +8,31 @@ Mustache_Autoloader::register();
 $arr = getContent(CONTENT);
 $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__).'/../'.TEMPLATE)));
 $pageTpl = $mustache->loadTemplate('page');
-$nav = array();
+//$nav = array();
 $addr = $_SERVER['REQUEST_URI'];
 $addr = substr($addr, strlen(BASE)+1);
 $addr = rtrim($addr, "/");
 //print_r(split("/",$addr));
-print_r($arr);
+//print_r($arr);
 $cached = false;
-
+/*$nav = '{
+	items:[
+	item: {title:"tytul1",link:"http://link1"},
+	item: {title:"tytul2",link:"http://link2",
+			 children:[
+					item:{title:"childtytul1",link:"http://childlink1"},
+					item:{title:"childtytul2",link:"http://childlink2"}
+					 ]
+			}
+	]
+}';*/
+$nav = array(
+    'foo' => array(
+        'bar' => array(
+            'baz' => 'qux',
+        ),
+    ),
+);
 if($cached)
 {
 	//show cached version
@@ -25,8 +42,7 @@ else
 	$pageVars = array();
 	$pageVars['page_title'] = TITLE;
 	$pageVars['base']=BASE;
-	$pageVars['nav'] = arr2nav($arr);
-	
+	$pageVars['nav'] = $nav; // arr2nav($arr);
 	if($addr == "") //home!
 	{
 		reset($arr);
@@ -144,20 +160,36 @@ if(is_file($dirname."/".$sub) && $sub != CONTENT404 && (pathinfo($sub, PATHINFO_
 	$post['id']= cleanURL($post['title'],true);
 	return $post;
 }
+//TARGET NAV STRUCTURE
+/*
+'{
+	"items":[
+	"item": {"title":"tytul1","link":"http://link1"},
+	"item": {"title":"tytul2","link":"http://link2","
+			 children":[
+					"item":{"title":"childtytul1","link":"http://childlink1"},
+					"item":{"title":"childtytul2","link":"http://childlink2"}
+					 ]
+			}
+	]
+}'
+
+
+*/
 //crap to throw away(so ugly):
-function arr2nav($array) { //this whole mess to templates 
+function arr2nav($array) { //this whole mess to templates //it should generate json with pairs link:title and children
     $out='<ul>'."\n";
     foreach($array as $key => $elem) {
-        $out.='<li>'.$elem['title'];
-		if(isset($elem['children']))
+        //$out.='<li>'.$elem['title'];
+		//$out.=sizeOf($elem['children']);
+		if( sizeOf($elem['children']) > 0 )
 		{
 			$out.='<li><span class="section-title">'.$elem['title'] ."</span>";
-			$out.= arr2nav($elem['children']).'</li>'."\n";
+			$out.= arr2nav($elem['children'])."\n";
 			$out.= '</li>'."\n";
 		}
 		else
 			$out.="<li>".$elem['title']."</li>";
-		
     }
     $out=$out.'</ul>'."\n";
     return $out;
