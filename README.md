@@ -12,7 +12,7 @@ TODO:
 *  tags
 *  link active w menu
 *  RSS in views
-*  Paginacja w viewsach
+*  Pagination in views
 *  Caching
 *  Slir(thumbnailing?)
 *  Disqs?
@@ -25,14 +25,14 @@ TODO:
 *  no, seriously... what about the section name when no 0.xxx file? Name of the dir? - worst case scenario
 *  secondary menu in template must be visible
 *  where to store the images?
-
+*  wrap everything in class
+*  type, tags, layout[?]
+*  pages 4 tags
+*  move 404 to .md file
 
 ##You should include following .htaccess file:
 
-		RewriteEngine On
-		RewriteBase /
-		RewriteCond %{REQUEST_FILENAME} !-f
-		RewriteCond %{REQUEST_FILENAME} !-d
-		RewriteRule .* index.php [L,QSA]
-		
-Changing the RewriteBase to proper dir on the server (/ - root)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L,QSA]

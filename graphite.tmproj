@@ -2,89 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>currentDocument</key>
-	<string>template/page.mustache</string>
 	<key>documents</key>
 	<array>
 		<dict>
-			<key>filename</key>
-			<string>content/1.intro.md</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T16:09:02Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>css/style.css</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T15:32:47Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>js/engine.js</string>
-			<key>lastUsed</key>
-			<date>2012-09-12T22:20:42Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>js/jquery-1.8.0.min.js</string>
-			<key>lastUsed</key>
-			<date>2012-08-28T13:14:05Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>/Library/WebServer/Documents/graphiteCMS/system/engine.php</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T16:08:50Z</date>
-			<key>saveAsAbsolutePath</key>
+			<key>expanded</key>
 			<true/>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>template/page.mustache</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T16:09:02Z</date>
-			<key>selected</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>/Library/WebServer/Documents/graphiteCMS/index.php</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T15:34:29Z</date>
-			<key>saveAsAbsolutePath</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>system/functions.php</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T15:40:19Z</date>
-		</dict>
-		<dict>
-			<key>filename</key>
-			<string>README.md</string>
-			<key>lastUsed</key>
-			<date>2012-09-14T15:54:33Z</date>
+			<key>name</key>
+			<string>graphiteCMS</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>README.md</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>8</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>content/1.intro.md</key>
 		<dict>
 			<key>caret</key>
@@ -107,20 +41,6 @@
 				<integer>50</integer>
 				<key>line</key>
 				<integer>23</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>index.php</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -155,34 +75,10 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>template/page.mustache</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>27</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 	</dict>
-	<key>openDocuments</key>
-	<array>
-		<string>index.php</string>
-		<string>README.md</string>
-		<string>system/engine.php</string>
-		<string>content/1.intro.md</string>
-		<string>system/functions.php</string>
-		<string>template/page.mustache</string>
-		<string>css/style.css</string>
-	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
 	<key>windowFrame</key>
-	<string>{{720, 4}, {720, 874}}</string>
+	<string>{{0, 4}, {1440, 874}}</string>
 </dict>
 </plist>
