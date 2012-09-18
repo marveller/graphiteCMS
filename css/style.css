@@ -11,12 +11,13 @@ body { margin:50px; font-family: 'Actor', sans-serif; font-size:13px; color:#3B3
 h1, h2, h3, h4, h5, h6 { text-transform: uppercase; color:#FF893B; text-shadow: 1px 1px 1px #5E5B51; margin:0 0 1em 0; }
 header { width: 800px; border-bottom:1px dotted #B8976E; padding: 0 0 0.5em 0; margin:0 0 1em 0; box-shadow: 0 1px 0 #fff;}
 h1 { font-size:1.5em; }
-nav { height:2em; }
+nav { /*height:2em;*/ float:left; font-size:0.9em; margin:0 1em 0 0; height:100%; }
 nav ul { list-style:none; padding:0; }
-nav ul li { float: left; font-weight:bold; border-right: 1px dotted #B8976E; box-shadow: 1px 0 0 #fff;padding: 0 1em 0 0; margin:0 1em 0 0; }
+nav ul li { }
 nav ul li:last-child { border: none; box-shadow: none; }
-nav ul li ul { display:none; }
-nav ul li ul li {float:none; border:none;box-shadow:none; margin:1em 0 0 0;}
+nav ul li ul { }
+nav ul li ul li {float:none; border:none;box-shadow:none; margin:0 0 0 1em;}
+nav ul a { text-decoration:none; color:#3B3935;}
 #content { width: 800px; min-height:400px; border-bottom:1px dotted #B8976E; padding: 0 0 0.5em 0; box-shadow: 0 1px 0 #fff; }
 #content h2 { font-size:1.4em; }
 #content h3 { font-size:1.3em; }

@@ -1,4 +1,4 @@
-#graphiteCMS v0.4.5
+# graphiteCMS v0.4.5
 
 TODO:
 *  define dateformat 4 blogs etc.
@@ -29,7 +29,6 @@ TODO:
 *  type, tags, layout[?]
 *  pages 4 tags
 *  move 404 to .md file
-
 ##You should include following .htaccess file:
 
 RewriteEngine On

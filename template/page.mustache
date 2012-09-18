@@ -7,22 +7,21 @@
   <link rel="stylesheet" href="{{base}}/css/reset.css" />  
   <link rel="stylesheet" href="{{base}}/css/style.css" />
   <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{base}}/js/engine.js"></script>
 </head>
 <body>
   <header>
     <h1>{{page_title}}</h1>
-    <nav>
-	{{#nav}}
-		{{#foo}}
-			{{#bar}}
-				{{baz}}
-			{{/bar}}
-		{{/foo}}
-	{{/nav}}
-    </nav>
   </header>
+  <nav>{{#nav}}
+    <ul>{{#items}}{{#item}}
+      <li>{{#link}}<a href="{{base}}/{{link}}">{{title}}</a>{{/link}}{{^link}}<span class="section-title">{{title}}</span>{{/link}}{{#hasChildren}}
+        <ul>{{#children}}{{#item}}
+          <li>{{#item.link}}<a href="{{base}}/{{item.link}}">{{item.title}}</a>{{/item.link}}{{^item.link}}{{item.title}}{{/item.link}}</li>{{/item}}{{/children}}
+        </ul>{{/hasChildren}}</li>{{/item}}{{/items}}
+    </ul>{{/nav}}
+  </nav>
   <div id="content">
     {{{content}}}
   </div>

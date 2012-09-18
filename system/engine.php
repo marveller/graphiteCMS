@@ -15,26 +15,23 @@ $addr = rtrim($addr, "/");
 //print_r(split("/",$addr));
 //print_r($arr);
 $cached = false;
-/*$nav = '{
-	items:[
-	item: {title:"tytul1",link:"http://link1"},
-	item: {title:"tytul2",link:"http://link2",
-			 children:[
-					item:{title:"childtytul1",link:"http://childlink1"},
-					item:{title:"childtytul2",link:"http://childlink2"}
-					 ]
-			}
-	]
-}';*/
-$nav = array(
-    'foo' => array(
-        'bar' => array(
-            'baz' => 'qux',
-        ),
-    ),
-);
-if($cached)
-{
+
+
+/*
+$nav = array (
+  'items' => array(
+    array('item' => array('link'=>"http1",'title'=>"title1", 'hasChildren'=>true, 'children'=>array(
+										array('item' => array('link' => "childhttp1",'title' => "childtitle1")),
+										array('item' => array('link' => "childhttp2",'title' => "childtitle2"))
+										))),
+    array('item' => array('link'=>"http2",'title'=>"title2", 'hasChildren'=>false )),
+    array('item' => array('link'=>"http3",'title'=>"title3", 'hasChildren'=>false ))
+));
+
+print_r($nav);
+*/
+//print_r(arr2nav($arr));
+if($cached) {
 	//show cached version
 }
 else
@@ -42,7 +39,7 @@ else
 	$pageVars = array();
 	$pageVars['page_title'] = TITLE;
 	$pageVars['base']=BASE;
-	$pageVars['nav'] = $nav; // arr2nav($arr);
+	$pageVars['nav'] = arr2nav($arr); // arr2nav($arr);
 	if($addr == "") //home!
 	{
 		reset($arr);
@@ -53,17 +50,16 @@ else
 	else if(array_key_exists($addr,$arr))//other //check if there is sth //on main level //what if lower?
 	{
 		$pageVars['post_title'] = "tmp title";	
-		$pageVars['content'] = "content to get for that path";	
+		$pageVars['content'] = $arr[$addr]['content'];	
 	}
 	else //404
 	{
-		$four04 = parseFile(CONTENT."/".CONTENT404);
+		$four04 = parseFile(CONTENT,CONTENT404);
 		$pageVars['post_title'] = $four04['title'];
 		$pageVars['content'] = $four04['content'];
 	}	
 	//cache!
 }
-
 
 //menu construction
 //content selection:
@@ -96,7 +92,7 @@ function getContent($path,$listDir = array()) {
         closedir($handler); 
     }
 	ksort($listDir);
-	//przepisanie do tablicy gdzie kluczem jest addr
+	//rewrite to an array where addr is the key
 	
 	$keys = array_keys($listDir); 
 	$values = array_values($listDir); 
@@ -122,17 +118,17 @@ function parseFile($path,$filename)
 	$post['id'] = cleanURL($post['title'],true);
 	if(!isset($post['type']))
 		$post['type']=DEFAULT_TYPE;
+	//$post['link'] = $post['id'];//TODO
 	return $post;
 }
 function parseDir($dirname)
 {
-	//make array of files, sort, get first file - analyze... //title //type
 	$files = array();
 	if($dirHandler = opendir($dirname)) {   
 		while (($sub = readdir($dirHandler)) !== FALSE) {
 			if ($sub != "." && $sub != ".." && $sub != "Thumb.db" && $sub != ".htaccess" && $sub != ".DS_Store") {
 if(is_file($dirname."/".$sub) && $sub != CONTENT404 && (pathinfo($sub, PATHINFO_EXTENSION) == "md" || pathinfo($sub, PATHINFO_EXTENSION) == "markdown" || pathinfo($sub, PATHINFO_EXTENSION) == "txt")) {
-					$files[$sub] = parseFile($dirname,$sub);
+					$files[$sub] = parseFile($dirname,$sub,"");
 					//echo $path."/".$sub;
 				}
             }
@@ -143,56 +139,57 @@ if(is_file($dirname."/".$sub) && $sub != CONTENT404 && (pathinfo($sub, PATHINFO_
 	reset($files);
 	$key = key($files);
 	$first = $files[$key];
-	$files.
+	//$files.
 	//$post = array();
 	$post['title']=$first['title'];
 	$post['type']=$first['type'];
+	$post['id']= cleanURL($post['title'],true);
 	$children = array_slice($files,1);
 	$keys = array_keys($children);
 	$values = array_values($children); 
 	foreach ($keys as $k => $v) { 
+		$values[$k]['id']=$post['id']."/".$values[$k]['id'];
 		$keys[$k] = $values[$k]['id'];
 	}
 	$children = array_combine($keys, $values);	
 	//process type
 	//plugin
 	$post['children']=$children;
-	$post['id']= cleanURL($post['title'],true);
+	
+	
+	//link depending on type! [aha]
+	
 	return $post;
 }
-//TARGET NAV STRUCTURE
-/*
-'{
-	"items":[
-	"item": {"title":"tytul1","link":"http://link1"},
-	"item": {"title":"tytul2","link":"http://link2","
-			 children":[
-					"item":{"title":"childtytul1","link":"http://childlink1"},
-					"item":{"title":"childtytul2","link":"http://childlink2"}
-					 ]
-			}
-	]
-}'
-
-
-*/
-//crap to throw away(so ugly):
-function arr2nav($array) { //this whole mess to templates //it should generate json with pairs link:title and children
-    $out='<ul>'."\n";
+function arr2nav($array) {
+    $nav = array();
+	$nav['items'] = array();
+	$id=0;
     foreach($array as $key => $elem) {
-        //$out.='<li>'.$elem['title'];
-		//$out.=sizeOf($elem['children']);
-		if( sizeOf($elem['children']) > 0 )
-		{
-			$out.='<li><span class="section-title">'.$elem['title'] ."</span>";
-			$out.= arr2nav($elem['children'])."\n";
-			$out.= '</li>'."\n";
+		$navElem = array();
+		$navElem['link'] = $elem['id'];
+		$navElem['title'] = $elem['title'];
+		if(sizeOf($elem['children']) > 0 ) {
+			$children = array();
+				$jd=0;
+				foreach($elem['children'] as $child) {
+					$ne = array();
+					$ne['link'] = $child['id'];
+					$ne['title'] = $child['title'];
+					$children[$jd] = array();
+					$children[$jd]['item']=$ne;
+					$jd++;
+				}
+			$navElem['hasChildren']=true;
+			$navElem['children']=$children;
 		}
 		else
-			$out.="<li>".$elem['title']."</li>";
+			$navElem['hasChildren']=false;
+		$nav['items'][$id] = array();
+		$nav['items'][$id]['item'] = $navElem;
+		$id++;
     }
-    $out=$out.'</ul>'."\n";
-    return $out;
+    return $nav;
 }
 if (!function_exists('array_combine')) { // ONLY EXISTS IN PHP5 
     function array_combine($keys, $values) { 
