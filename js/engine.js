@@ -1,6 +1,7 @@
-$(document).ready(function() {
- //activePage = first of the first
- //but then I was like...
- //meanwhile in other sections:
- //hide();
+$(function() {
+	$('.active .section-title').siblings('ul').show();
+	$('.section-title').click(function() {
+		$('.section-title').not(this).siblings('ul:visible').slideUp();
+		$(this).siblings('ul').slideDown();
+	});
 });	

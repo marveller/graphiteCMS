@@ -5,32 +5,15 @@ include_once "lib/markdown.php";
 include('lib/spyc.php');
 include('functions.php');
 Mustache_Autoloader::register();
-$arr = getContent(CONTENT);
 $mustache = new Mustache_Engine(array('loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__).'/../'.TEMPLATE)));
+
 $pageTpl = $mustache->loadTemplate('page');
-//$nav = array();
+$arr = getContent(CONTENT);
 $addr = $_SERVER['REQUEST_URI'];
 $addr = substr($addr, strlen(BASE)+1);
 $addr = rtrim($addr, "/");
-//print_r(split("/",$addr));
-//print_r($arr);
 $cached = false;
 
-
-/*
-$nav = array (
-  'items' => array(
-    array('item' => array('link'=>"http1",'title'=>"title1", 'hasChildren'=>true, 'children'=>array(
-										array('item' => array('link' => "childhttp1",'title' => "childtitle1")),
-										array('item' => array('link' => "childhttp2",'title' => "childtitle2"))
-										))),
-    array('item' => array('link'=>"http2",'title'=>"title2", 'hasChildren'=>false )),
-    array('item' => array('link'=>"http3",'title'=>"title3", 'hasChildren'=>false ))
-));
-
-print_r($nav);
-*/
-//print_r(arr2nav($arr));
 if($cached) {
 	//show cached version
 }
@@ -39,25 +22,46 @@ else
 	$pageVars = array();
 	$pageVars['page_title'] = TITLE;
 	$pageVars['base']=BASE;
-	$pageVars['nav'] = arr2nav($arr); // arr2nav($arr);
+	
 	if($addr == "") //home!
 	{
 		reset($arr);
 		$key = key($arr);
+		$addr = $arr[$key]['id'];//for menu active sake
 		$pageVars['post_title'] = $arr[$key]['title'];
 		$pageVars['content'] = $arr[$key]['content'];
 	}
 	else if(array_key_exists($addr,$arr))//other //check if there is sth //on main level //what if lower?
 	{
-		$pageVars['post_title'] = "tmp title";	
+		$pageVars['post_title'] = $arr[$addr]['title'];
 		$pageVars['content'] = $arr[$addr]['content'];	
 	}
-	else //404
+	else //maybe something on lower level? or 404
 	{
-		$four04 = parseFile(CONTENT,CONTENT404);
-		$pageVars['post_title'] = $four04['title'];
-		$pageVars['content'] = $four04['content'];
-	}	
+		$found  = false;
+		foreach($arr as $elem)
+		{
+			if(sizeOf($elem['children']) > 0 )
+			{
+				$children = $elem['children'];
+				if(array_key_exists($addr,$children))
+				{
+					$pageVars['post_title'] = $children[$addr]['title'];
+					$pageVars['content'] = $children[$addr]['content'];
+					
+					$found = true;
+					break;
+				}
+			}
+		}
+		if(!$found)
+		{
+			$four04 = parseFile(CONTENT,CONTENT404);
+			$pageVars['post_title'] = $four04['title'];
+			$pageVars['content'] = $four04['content'];
+		}
+	}
+	$pageVars['nav'] = getNavigation($arr,$addr);	
 	//cache!
 }
 
@@ -103,6 +107,7 @@ function getContent($path,$listDir = array()) {
 	
     return $listDir;
 }
+
 function parseFile($path,$filename)
 {
 	$filename = $path . "/" . $filename;
@@ -121,6 +126,7 @@ function parseFile($path,$filename)
 	//$post['link'] = $post['id'];//TODO
 	return $post;
 }
+
 function parseDir($dirname)
 {
 	$files = array();
@@ -161,20 +167,29 @@ if(is_file($dirname."/".$sub) && $sub != CONTENT404 && (pathinfo($sub, PATHINFO_
 	
 	return $post;
 }
-function arr2nav($array) {
+function getNavigation($array,$addr) {
     $nav = array();
 	$nav['items'] = array();
 	$id=0;
     foreach($array as $key => $elem) {
 		$navElem = array();
-		$navElem['link'] = $elem['id'];
+		$navElem['link'] = BASE."/" . $elem['id'];
+		$a = explode("/",$addr);
+		if(strcmp($navElem['link'],BASE."/" .$a[0])==0)
+		{
+			$navElem['class'] = "active";
+		}
 		$navElem['title'] = $elem['title'];
 		if(sizeOf($elem['children']) > 0 ) {
 			$children = array();
 				$jd=0;
 				foreach($elem['children'] as $child) {
 					$ne = array();
-					$ne['link'] = $child['id'];
+					$ne['link'] = BASE."/" . $child['id'];
+					if(strcmp($ne['link'],BASE."/" .$addr)==0)
+					{
+						$ne['class'] = "active";
+					}
 					$ne['title'] = $child['title'];
 					$children[$jd] = array();
 					$children[$jd]['item']=$ne;
@@ -182,6 +197,7 @@ function arr2nav($array) {
 				}
 			$navElem['hasChildren']=true;
 			$navElem['children']=$children;
+			$navElem['link'] = ""; //sooo bad
 		}
 		else
 			$navElem['hasChildren']=false;
